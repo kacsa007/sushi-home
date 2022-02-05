@@ -54,7 +54,6 @@ def single_price_calculator(orders_dict, lunch_menu_available):
     # there's no need to have a manu but this can be redundant as my algorithm is robust(hopefully), but I kept it here
 
     if len(orders_dict) <= 3 or not set_flags_special_dish(orders_dict):
-        print("here")
 
         not_optimal_price = sum([menu_items[key] * orders_dict[key] for key in orders_dict])
         print(not_optimal_price)
