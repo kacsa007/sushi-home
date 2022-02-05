@@ -4,7 +4,6 @@ from collections import defaultdict
 
 def set_flags_special_dish(dictionary_with_orders):
 
-
     if 'Red' in dictionary_with_orders or 'Blue' in dictionary_with_orders or 'Soup' in dictionary_with_orders:
         return True
     else:
@@ -49,22 +48,22 @@ def single_price_calculator(orders_dict, lunch_menu_available):
 
     orders_dict = defaultdict(int, orders_dict)
     n_dishes = sum(orders_dict.values())
+    # solving the bug we had
     flag_its_more = False
 
     # there's no need to have a manu but this can be redundant as my algorithm is robust(hopefully), but I kept it here
 
     if len(orders_dict) <= 3 or not set_flags_special_dish(orders_dict):
         print("here")
-        # exit(1)
+
         not_optimal_price = sum([menu_items[key] * orders_dict[key] for key in orders_dict])
         print(not_optimal_price)
-        # exit(1)
+
         if not_optimal_price <= 8.5:
 
             return not_optimal_price
         else:
-            # print("irrr")
-            # exit(1)
+
             flag_its_more = True
 
     if not lunch_menu_available or n_dishes < 5 or not set_flags_special_dish(orders_dict):
